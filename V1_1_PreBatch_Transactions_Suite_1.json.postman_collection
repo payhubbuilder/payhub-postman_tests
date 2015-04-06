@@ -1,0 +1,3808 @@
+{
+	"id": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+	"name": "V1_1_PreBatch_Transactions_Suite_1",
+	"description": "This is a set of transactions that does not depend on previously batched transactions.",
+	"order": [
+		"6d5dadac-c5fe-b6eb-1172-dd4fb6beb686",
+		"43daf5e3-cc34-39fd-50e4-29eca1a9b826",
+		"b0cd38bf-ccb6-c9d0-cfb1-db93c44da37e",
+		"ea25e6e0-b4aa-5c90-5794-330f228aa158",
+		"6d5004c3-7bdd-a845-4db9-29c9ffc06ffe",
+		"d98093cf-58c8-fe9a-9a98-435bfda25a23",
+		"92d1549a-9e90-9926-5df3-fa8c0a0090ee",
+		"5d043797-4679-6d49-fec1-5afed33ab7f4",
+		"fcf49b73-8301-bb32-3f86-23149c120562",
+		"470cd0a3-4b95-716c-5933-651ebf6e7115",
+		"89b068bc-8ea9-9f6e-bc83-fe26cc30228b",
+		"11e7e4c3-a2b6-ed23-a3cd-b15310ba3cb5",
+		"9860c9f3-6255-b615-1613-e0426e6ec4f6",
+		"0415b536-a253-a384-8760-983cf706f275",
+		"703b9e0e-dce4-6d73-b62f-404e27a3abbb",
+		"f741332c-48ee-7858-d9e0-ff5bd70a688c",
+		"6f511791-e4ee-78bf-5b0d-cece499034c5",
+		"9ee3660e-d9ba-85ff-8978-066db6a86df4",
+		"29185690-9d2e-3594-a8d6-1eb1c481bddf",
+		"c5e1c0ea-16fc-fd5b-c56c-a21b3fea9f25",
+		"917b50a2-19a2-65cb-4647-b8832d9f4715",
+		"55930ab8-029b-838d-154d-5947cc5e9cf3",
+		"1aa32f38-a164-bdf5-c9ac-e42abd8798c7",
+		"43a69f5c-b424-6b4f-e781-dcf3a21afff5",
+		"25de3fcf-0f5d-1984-12f2-5701ada48c67",
+		"ae07d7a2-237c-629b-ca5d-7d16fb20ca29",
+		"58b48cf6-ee1b-d861-c12f-17b9fca46cfe"
+	],
+	"folders": [],
+	"timestamp": 1428008087003,
+	"synced": false,
+	"owner": "26904",
+	"subscribed": false,
+	"remoteLink": "",
+	"public": false,
+	"write": true,
+	"requests": [
+		{
+			"id": "0415b536-a253-a384-8760-983cf706f275",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Offline\", transactionId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420758582223,
+			"name": "010a Auth-Only Transaction Successful (to be Offlined)",
+			"description": "Successful Auth-Only Transaction to be used as the basis for a Successful Offline transaction, in a separate subsequent batch after the batch that this transaction is on has been successfully submitted.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "11e7e4c3-a2b6-ed23-a3cd-b15310ba3cb5",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Refund\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420755291824,
+			"name": "008a Sale Transaction Successful (to be refunded)(2 Batch Process) ",
+			"description": "Simple Successful Transaction\nThis will be used for Refund. This transaction's \"trans_id\"_ will be used in the Refund test.\n\nServes to Test Successful Transaction \nServes as prerequesite transaction for a refund.\n\nWill need to batch this transaction before the refund can be tested.\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "1aa32f38-a164-bdf5-c9ac-e42abd8798c7",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(b)_2  Sale Transaction Successful without zip code value in zip field ",
+			"description": "Simple Successful Transaction without zip code value in zip field\n\nServes to Test Successful Transaction without zip code value in zip field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "25de3fcf-0f5d-1984-12f2-5701ada48c67",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(c)_1  Sale Transaction Successful without address1 field and without  zip code field",
+			"description": "Simple Successful Transaction without address1 field and without zip code field\n\nServes to Test Successful Transaction without address1 field and without zip code field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "29185690-9d2e-3594-a8d6-1eb1c481bddf",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(a)_1  Sale Transaction Successful without address1 field",
+			"description": "Simple Successful Transaction without address1 field\n\nServes to Test Successful Transaction without address1 field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "43a69f5c-b424-6b4f-e781-dcf3a21afff5",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(b)_3  Sale Transaction Successful with invalid zip code in zip field",
+			"description": "Simple Successful Transaction with invalid zip code in zip field\n\nServes to Test Successful Transaction with invalid zip code in zip field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "43daf5e3-cc34-39fd-50e4-29eca1a9b826",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\nconsole.log(body.TRANSACTION_ID);\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1421710573003,
+			"name": "002a  Sale Transaction Successful (to be voided)",
+			"description": "Simple Successful Transaction\nThis will be used for Void. This transaction's \"trans_id\"_ will be used in the void test.\n\nServes to Test Successful Transaction \nServes as prerequesite transaction for a void.\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "470cd0a3-4b95-716c-5933-651ebf6e7115",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "capture",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_id",
+					"value": "{{Previous_Successful_Auth-Only_For_Capture_then_Void}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Capture_from_Auth-Only_For_Void\", transactionId);\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420765871118,
+			"name": "007b Capture Transaction (from Auth-Only to be Voided) (trans_id required)",
+			"description": "Had tried to capture the resulting Trans_ID from the capture to be used for the void using:\n\nPrevious_Successful_Capture_from_Auth-Only_For_Void\n\nBUT because the capture does not yield a transaction_Id, confirmed void using the Transaction_ID from the Auth-Only.\n\nNot sure if the last test for the void is correct",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "55930ab8-029b-838d-154d-5947cc5e9cf3",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(b)_1  Sale Transaction Successful without zip field",
+			"description": "Simple Successful Transaction without zip field\n\nServes to Test Successful Transaction without zip field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "58b48cf6-ee1b-d861-c12f-17b9fca46cfe",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(c)_3  Sale Transaction Successful without valid street address and without valid zip code copy",
+			"description": "Simple Successful Transaction without valid street address and without valid zip code\n\nServes to Test Successful Transaction without valid street address and without valid zip code\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"isFromCollection": true,
+			"collectionRequestId": "abc08cb1-95f4-a4ae-d1bd-11874fa21f45",
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "5d043797-4679-6d49-fec1-5afed33ab7f4",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "capture",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_id",
+					"value": "{{Previous_Successful_Auth-Only_For_Capture}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420752916966,
+			"name": "006b Capture Transaction (from Auth-Only) (trans_id required)",
+			"description": "",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "6d5004c3-7bdd-a845-4db9-29c9ffc06ffe",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Void\", transactionId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751882731,
+			"name": "005a Auth-Only Transaction Successful (to be voided)",
+			"description": "",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "6d5dadac-c5fe-b6eb-1172-dd4fb6beb686",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4266841082854082",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "0.01",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"01\"');\n  console.log(responseBody);\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420507842153,
+			"name": "001  Sale Transaction Fail",
+			"description": "Simple test for a failed transaction.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"isFromCollection": true,
+			"collectionRequestId": "301f188f-049a-7b33-d49b-ae14bcdb7c84",
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "6f511791-e4ee-78bf-5b0d-cece499034c5",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012a_(b)  Sale Transaction Successful without CVV value",
+			"description": "Simple Successful Transaction without CVV value\n\nServes to Test Successful Transaction without CVV value\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "703b9e0e-dce4-6d73-b62f-404e27a3abbb",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Offline_to_Void\", transactionId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420758609920,
+			"name": "011a Auth-Only Transaction Successful (to be offlined then the offline voided)",
+			"description": "This Auth-Only transaction is to serve as the basis of a future offline on a subsequent and separate batch. That Offline is to be voided, subsequently.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "89b068bc-8ea9-9f6e-bc83-fe26cc30228b",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "void",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_id",
+					"value": "{{Previous_Successful_Auth-Only_For_Capture_then_Void}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n  ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1421699372734,
+			"name": "007c Void Transaction (from Capture of Auth-Only) Fail (trans_id required)",
+			"description": "This tests a successful void. Will need to have a pre-existing succesful transaction from which it will need the \"trans_id\"\n\nServes to test a void.\n\n\nHad tried to capture the resulting Trans_ID from the capture to be used for the void using:\n\nPrevious_Successful_Capture_from_Auth-Only_For_Void\n\nBUT because the capture does not yield a transaction_Id, confirmed void using the Transaction_ID from the Auth-Only.\n\nNot sure if the last test for the void is correct",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "917b50a2-19a2-65cb-4647-b8832d9f4715",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(a)_3  Sale Transaction Successful with invalid address1 street number value",
+			"description": "Simple Successful Transaction with invalid address1 street number\n\nServes to Test Successful Transaction with invalid address1 street number\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "92d1549a-9e90-9926-5df3-fa8c0a0090ee",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Capture\", transactionId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420752482032,
+			"name": "006a Auth-Only Transaction Successful (to be captured)",
+			"description": "",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "9860c9f3-6255-b615-1613-e0426e6ec4f6",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Refund_to_void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420756010142,
+			"name": "009a Sale Transaction Successful (to be refunded then void refund)(2 Batch Process)  ",
+			"description": "Simple Successful Transaction\nThis will be used for Refund. This transaction's \"trans_id\"_ will be used in the Refund test.\n\nServes to Test Successful Transaction \nServes as prerequesite transaction for a refund.\n\nWill need to batch this transaction before the refund can be tested.\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "9ee3660e-d9ba-85ff-8978-066db6a86df4",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012a_(c)  Sale Transaction Successful with incorrect CVV",
+			"description": "Simple Successful Transaction with invalid CVV\n\nServes to Test Successful Transaction withinvalid CVV\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "ae07d7a2-237c-629b-ca5d-7d16fb20ca29",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(c)_2  Sale Transaction Successful without valid street address and without valid zip code",
+			"description": "Simple Successful Transaction without valid street address and without valid zip code\n\nServes to Test Successful Transaction without valid street address and without valid zip code\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"isFromCollection": true,
+			"collectionRequestId": "abc08cb1-95f4-a4ae-d1bd-11874fa21f45",
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "b0cd38bf-ccb6-c9d0-cfb1-db93c44da37e",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "void",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_id",
+					"value": "{{Previous_Successful_Sale_For_Void}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n  ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420753517357,
+			"name": "002b  Void Transaction (from Sale) (trans_id required)",
+			"description": "This tests a successful void. Will need to have a pre-existing succesful transaction from which it will need the \"trans_id\"\n\nServes to test a void.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "c5e1c0ea-16fc-fd5b-c56c-a21b3fea9f25",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012b_(a)_2  Sale Transaction Successful without address1 street number value",
+			"description": "Simple Successful Transaction without address1 street number value\n\nServes to Test Successful Transaction without address street number value\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "d98093cf-58c8-fe9a-9a98-435bfda25a23",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "void",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_id",
+					"value": "{{Previous_Successful_Auth-Only_For_Void}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"4073\"');\n  console.log(responseBody);\n  ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420763063922,
+			"name": "005b Void Transaction (from Auth-Only) Fail (trans_id required)",
+			"description": "This tests a successful void. Will need to have a pre-existing succesful transaction from which it will need the \"trans_id\"\n\nServes to test a void.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "ea25e6e0-b4aa-5c90-5794-330f228aa158",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4266841082854082",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "0.01",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"01\"');\n  console.log(responseBody);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420507884958,
+			"name": "004  Auth-Only Transaction Fail",
+			"description": "Testing for a simple failed Auth-Only Transaction.",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"synced": false,
+			"isFromCollection": true,
+			"collectionRequestId": "319c4dbb-5eb0-c65c-c742-05506adf58fa",
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0
+		},
+		{
+			"id": "f741332c-48ee-7858-d9e0-ff5bd70a688c",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "sale",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\n\nconsole.log(responseBody);\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\n\nbody.TRANSACTION_ID;\n\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Sale_For_Void\", transactionId);\n\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420751906150,
+			"name": "012a_(a)  Sale Transaction Successful without CVV field",
+			"description": "Simple Successful Transaction without CVV field\n\nServes to Test Successful Transaction without CVV field\n",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		},
+		{
+			"id": "fcf49b73-8301-bb32-3f86-23149c120562",
+			"headers": "",
+			"url": "{{protocol}}{{host}}{{application_root}}/api",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Response code is 200\"] = responseCode.code === 200;\n  console.log(responseCode);\ntests[\"RESPONSE_CODE is 00\"] = responseBody.has('\"RESPONSE_CODE\":\"00\"');\n  console.log(responseBody);\n\n\nvar body = JSON.parse(responseBody);\n\nconsole.log(body);\n\n\nconsole.log(body.TRANSACTION_ID);\n\n\nvar transactionId = body.TRANSACTION_ID;\n\npostman.setEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Capture_then_Void\", transactionId);\n\nconsole.log(postman.getEnvironmentVariable(\"Previous_Successful_Auth-Only_For_Capture_then_Void\"));\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1420766554000,
+			"name": "007a Auth-Only Transaction Successful (to be captured then voided) ",
+			"description": "Had tried to capture the resulting Trans_ID from the capture to be used for the void using:\n\nPrevious_Successful_Capture_from_Auth-Only_For_Void\n\nBUT because the capture does not yield a transaction_Id, confirmed void using the Transaction_ID from the Auth-Only.\n\nNot sure if the last test for the void is correct",
+			"collectionId": "e982ea97-571f-29dc-3c80-0a84ad5deeda",
+			"responses": [],
+			"write": true,
+			"owner": "26904",
+			"collectionOwner": 0,
+			"synced": false
+		}
+	]
+}
