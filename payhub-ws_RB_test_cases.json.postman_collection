@@ -1,0 +1,2103 @@
+{
+	"id": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+	"name": "payhub-ws_RB_test_cases",
+	"description": "Test Cases for PayHub API 2.0 - Recurring Billing.",
+	"order": [
+		"f3049664-39d3-b40a-2834-afe0dd4fe254",
+		"b4e173ae-7a87-afd5-ed3b-41b914c20971",
+		"74faddb0-81ce-5781-0324-498b9c97a71d",
+		"9969bab8-b544-ae96-3a52-ab443f43afe8",
+		"d81dfac0-79f4-63d4-fea5-a45c0d9607ac",
+		"debbf40b-1c00-4b24-292c-cd94d8ebaf88",
+		"795b14fe-9a87-55c8-b673-ef03b77bba9b",
+		"a7eb8b1f-6f84-28fe-2fd2-038361720bf3",
+		"db797701-a4cf-8baf-0c89-ff4c7e1a9168",
+		"00ebb61b-a1da-59c5-9d2d-f0087eadfe5f",
+		"c15b1668-45e2-d946-934d-94dc470e84f8",
+		"d158458d-aa2e-c6e6-89a5-799e9bc21ad1",
+		"6b099adc-cffa-e406-d7cb-79f5a0a40005",
+		"d6a83390-c2ee-e473-d10a-cd257d688b20",
+		"aa40cdc6-bdea-cf28-276f-84b02e79327f",
+		"e1051a3c-ebb0-6cd7-cf39-be6f66b48dbc",
+		"1dfe8681-19ae-c1c5-27b6-0983f3378e3f",
+		"5894c7d2-609a-d525-ce79-08a1f3fcc0a7",
+		"57a5c902-02f8-4ddd-e3c7-5eedd680451d",
+		"aecd556f-3fc9-75df-b15e-0ad1fc9aa925",
+		"f46ca83a-682a-6c54-a0c0-b04dfb4fc672",
+		"e7927d5d-8bab-e7f7-5c8e-d8d582fc6bef",
+		"e78a6745-7d59-4ea7-983e-74478a64eef5",
+		"1164ff81-1436-b97f-7421-1f364d27d958",
+		"3a302c09-71e0-3a5d-a14a-99dae40b290d",
+		"0d616daf-fee0-e26c-1886-6bdf5a91adfb",
+		"c3147dee-65ef-4957-696d-2f03224b4b29",
+		"fa4423d0-883a-6ec6-e28e-4b7ddc0a5d10",
+		"b61ff1ea-20a6-ade2-8c17-abb83f9a9f6a",
+		"705300f5-862d-f599-82a7-1153479c71cc",
+		"69ab6f75-ff58-e679-643d-ff9e2577e975",
+		"890993a9-ce51-f56d-7b98-eed5ff86b148",
+		"8b0d6243-b10b-2fc2-c211-1671bff2ac28",
+		"9bfbcefc-0331-fe00-24e0-5e218253cb8f",
+		"233cbc8e-e2b5-1ba5-3d45-394170c97c1e",
+		"d3987e69-4154-2cdf-53cb-8f92b3c95ddd",
+		"17176647-62dc-beab-caac-525cc34a3c74",
+		"8c585dd1-9c6a-4b5b-6e22-b357f7ae321a",
+		"e7505228-7cd3-6b44-d18f-42f4b67f36fd",
+		"8d0bc895-14d3-dbd9-d2f8-b30b2ac4297a",
+		"061c6c9d-9b24-9f59-f8ec-a93ef11f43e1",
+		"7cc46415-e159-45c6-5d13-435c33239d92",
+		"af39e3c7-79b6-4ede-b8e0-c5f26cd80b45"
+	],
+	"folders": [],
+	"timestamp": 1418925170863,
+	"synced": false,
+	"owner": "",
+	"subscribed": false,
+	"remoteLink": "https://www.getpostman.com/collections/c0945a3649d6b80ae83d",
+	"public": false,
+	"write": true,
+	"requests": [
+		{
+			"id": "00ebb61b-a1da-59c5-9d2d-f0087eadfe5f",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  var body = JSON.parse(responseBody);\n\n  tests[\"Response code is 400.\"] = responseCode.code === 400;\n  tests[\"There should be 1 errors.\"] = body.errors.length === 1;\n  tests[\"Error indicates billing_zip is the problem.\"] = responseBody.has('\"reason\":\"AVS is active for this Merchant. You must enter at least a billing_zip for this Merchant.\"');\n} \ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101438262,
+			"name": "Billing zip is required.",
+			"description": "Send request without billing zip code.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 10.00\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "061c6c9d-9b24-9f59-f8ec-a93ef11f43e1",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill-status/{{rb_id_to_be_cancelled}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\t\n\ttests[\"It should return a 204 response code.\"] = responseCode.code === 204;\n\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101937417,
+			"name": "Successfully cancel a recurring bill.",
+			"description": "Update the status of a bill to CANCELED.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{ \n\t\"recurring_bill_status\": \"CANCELED\"\n}"
+		},
+		{
+			"id": "0d616daf-fee0-e26c-1886-6bdf5a91adfb",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101772851,
+			"name": "A successful yearly bill using monthly bill schedule with card, each, never ends.",
+			"description": "A successful monthly recurring bill that simulatees a yearly bill schedule.  Charges on the 1st of the year and never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 12,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n\t  \t\"monthly_type\": \"E\",\n\t  \t\"monthly_each_days\": [1]\n\t}\n  }\n}"
+		},
+		{
+			"id": "1164ff81-1436-b97f-7421-1f364d27d958",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101690275,
+			"name": "A successful daily bill with card; interval > 1;  ends after a certain number of bills.",
+			"description": "A successful daily recurring bill with an interval greater than one, and ends after a certain number of bills.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"D\",\n    \"bill_generation_interval\": 14,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"A\",\n      \"end_after_bill_count\": 10\n    }\n  }\n}"
+		},
+		{
+			"id": "17176647-62dc-beab-caac-525cc34a3c74",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill/{{rb_id_for_active_to_query}}/status",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n  \ttests[\"Response code is 200.\"] = responseCode.code === 200;\n\ttests[\"Response contains the status.\"] = typeof body.recurring_bill_status !== 'undefined';\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101903503,
+			"name": "Get the status of an existing recurring bill.",
+			"description": "Get the status of an existing recurring bill.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "1dfe8681-19ae-c1c5-27b6-0983f3378e3f",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n\t\t\n    var locationFullUrl = responseHeaders.Location;\n    \n    var fullUrlArray = locationFullUrl.split(\"/\");\n    \n    postman.setEnvironmentVariable(\"rb_id_to_be_cancelled\", fullUrlArray[fullUrlArray.length - 1]);\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101518678,
+			"name": "A successful monthly bill with card, each, ends on specific date. ( Sets ENV VAR: rb_id_to_be_cancelled )",
+			"description": "A successful monthly recurring bill that charges on the 1st of every month and ends on a specific date.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \t\"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"phone_number\": \"877-246-5133\",\n    \"phone_type\": \"W\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 19.99\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"O\",\n      \"end_date\": \"2016-01-01\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [15]\n    }\n  }\n}"
+		},
+		{
+			"id": "233cbc8e-e2b5-1ba5-3d45-394170c97c1e",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill/{{rb_id_for_active_to_query}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 200.\"] = responseCode.code === 200;\n\n\tvar body = JSON.parse(responseBody);\n\t\n    postman.setEnvironmentVariable(\"existing_test_customer_id\", body.lastRecurringBillResponse.customerReference.customerId);\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101874351,
+			"name": "Get the details of an existing recurring bill. ( Sets ENV VAR: existing_test_customer_id )",
+			"description": "Get the (exhaustive) details of an existing recurring bill.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "3a302c09-71e0-3a5d-a14a-99dae40b290d",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 201.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates specific_dates is the problem.\"] = body.errors[0][\"location\"] === \"specific_dates\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101760217,
+			"name": "A failed specific bill schedule; failed due to invalid date format.",
+			"description": "A failed specific days recurring bill schedule.  Use an invalid date format to specify the days to bill.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": 10002,\n    \"terminal_id\": 3\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"S\",\n    \"specific_dates_schedule\": {\n    \t\"specific_dates\": [\"02-28-2015\",\"03-31-2015\"]\n    }\n  }\n}"
+		},
+		{
+			"id": "57a5c902-02f8-4ddd-e3c7-5eedd680451d",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101541504,
+			"name": "A successful monthly bill with card, on, never ends. ",
+			"description": "A successful monthly recurring bill that charges on the 1st Monday of every month and never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"O\",\n      \"monthly_on_the_day_of_week_in_month\": 1,\n      \"monthly_day_of_week\": 2\n    }\n  }\n}"
+		},
+		{
+			"id": "5894c7d2-609a-d525-ce79-08a1f3fcc0a7",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n\t\n    var locationFullUrl = responseHeaders.Location;\n    \n    var fullUrlArray = locationFullUrl.split(\"/\");\n    \n    postman.setEnvironmentVariable(\"rb_id_for_active_to_query\", fullUrlArray[fullUrlArray.length - 1]);\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101526305,
+			"name": "A successful monthly bill with card, each, ends after a certain number of bills. (Sets ENV VAR: rb_id_for_active_to_query )",
+			"description": "A successful monthly recurring bill that charges on the 1st of every month and ends after a certain number of bills.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \t\"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\",\n    \"company_name\": \"PayHub\",\n    \"web_address\": \"www.payhub.com\",\n    \"job_title\": \"Developer\",\n    \"phone_number\": \"877-246-5133\",\n    \"phone_type\": \"W\",\n    \"phone_ext\": \"123\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    },\n    \"note\": \"Test note for recurring bill api.\"\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"A\",\n      \"end_after_bill_count\": 6\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "69ab6f75-ff58-e679-643d-ff9e2577e975",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 201.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates specific_dates is the problem.\"] = body.errors[0][\"location\"] === \"phone_number\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101827560,
+			"name": "HUB-696 - Customer phone with embedded ext should not be allowed.",
+			"description": "Send a request with the extension included in the customer phone number field.  It should fail because there is a separate field for the extension.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"phone_number\": \"877-246-5133 x1234\",\n  \t\"phone_type\": \"W\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 19.99\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "6b099adc-cffa-e406-d7cb-79f5a0a40005",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n  \ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be 1 errors.\"] = body.errors.length === 1;\n\ttests[\"Response body indicates base amount is the problem.\"] = body.errors[0][\"location\"] === \"base_amount\";\n} \ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101476502,
+			"name": "An amount is required.",
+			"description": "Send request without an amount specified.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 0\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "705300f5-862d-f599-82a7-1153479c71cc",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428103038569,
+			"name": "A successful yearly bill with card, never ends",
+			"description": "A successful yearly recurring bill that never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 99.25,\n      \"currency\": \"USD\"\n    }\n  },\n\n  \"schedule\": {\n    \"schedule_type\": \"Y\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"end_date_type\": \"N\"\n    },\n    \"yearly_schedule\": {\n      \"year_to_start\": 2015,\n      \"yearly_bill_on_month_number\": 5,\n      \"yearly_bill_on_day_of_month\": \"15\"\n    }\n  },\n\n\n\n\n\n  \"card_data\": {\n    \"card_expiry_date\": \"202012\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\",\n    \"card_number\": \"4012881888818888\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\"\n   },\n\n\n\n   \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\",\n    \"phone_number\": \"(415) 479 1234\",\n    \"phone_type\": \"M\"\n  }\n\n\n\n}"
+		},
+		{
+			"id": "74faddb0-81ce-5781-0324-498b9c97a71d",
+			"headers": "Authorization: Bearer {{auth_token}}\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "HEAD",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \ttests[\"Response code should be 204.\"] = responseCode.code === 204;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428100120037,
+			"name": "Recurring API status request.",
+			"description": "Check on that the recurring API is available.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "795b14fe-9a87-55c8-b673-ef03b77bba9b",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n  \ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates organization ID is the problem.\"] = body.errors[0][\"location\"] === \"organization_id\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101407225,
+			"name": "Invalid merchant organization id.",
+			"description": "Organization IDs must be positive integers.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": -10002,\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"bill\": {},\n  \"customer\": {},\n  \"schedule\": {},\n  \"card_data\": {}\n}"
+		},
+		{
+			"id": "7cc46415-e159-45c6-5d13-435c33239d92",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill-status/{{rb_id_to_be_cancelled}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n    var body = JSON.parse(responseBody);\n\n\ttests[\"It should return a 400 HTTP response.\"] = responseCode.code === 400;\n\ttests[\"It should return a 4522 error code.\"] = body.errors[0][\"code\"] === \"4522\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101951928,
+			"name": "Can't update status after canceled.",
+			"description": "You should not be able to update the status of a recurring bill after it is canceled.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{ \n\t\"recurring_bill_status\": \"ACTIVE\"\n}"
+		},
+		{
+			"id": "890993a9-ce51-f56d-7b98-eed5ff86b148",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101836887,
+			"name": "A successful monthly bill with card, each, never ends; with bill metadata.",
+			"description": "A successful monthly recurring bill that charges on the 1st of every month and never ends.  Includes metatdata in the \"bill\" block.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 19.99\n      },\n      \"metaData\": {\"plan_id\": 123, \"customer_id\": \"cust123\"}\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "8b0d6243-b10b-2fc2-c211-1671bff2ac28",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 200.\"] = responseCode.code === 200;\n\ttests[\"We get back at least 1 recurring bill.\"] = body._embedded.recurringbills.length > 0;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101844641,
+			"name": "Get all recurring bills.",
+			"description": "Get all recurring bills for a given merchant.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "8c585dd1-9c6a-4b5b-6e22-b357f7ae321a",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill-status/{{rb_id_for_active_to_query}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 200.\"] = responseCode.code === 200;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101910695,
+			"name": "Get the status of an existing recurring bill.",
+			"description": "Get the status details of an existing recurring bill.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "8d0bc895-14d3-dbd9-d2f8-b30b2ac4297a",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill-status/625",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"It should return a 400 response code.\"] = responseCode.code === 400;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101929925,
+			"name": "Invalid status sent in update status request.",
+			"description": "Sending an invalid status in an update status request should give an error.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{ \n\t\"recurring_bill_status\": \"BAD STATUS\"\n}"
+		},
+		{
+			"id": "9969bab8-b544-ae96-3a52-ab443f43afe8",
+			"headers": "Authorization: Bearer 1234\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \ttests[\"Response code is 401.\"] = responseCode.code === 401;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428100134382,
+			"name": "Invalid credentials.",
+			"description": "Test for invalid credentials.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": ""
+		},
+		{
+			"id": "9bfbcefc-0331-fe00-24e0-5e218253cb8f",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill/search/findByMerchantOrganizationId?organizationId={{org_id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\t\n  \ttests[\"Response code is 200.\"] = responseCode.code === 200;\n\ttests[\"We get back at least 1 recurring bill.\"] = body._embedded.recurringbills.length > 0;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101852315,
+			"name": "Get all recurring bills for a given merchant.",
+			"description": "Get all recurring bills for a given merchant (by organization id).",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "a7eb8b1f-6f84-28fe-2fd2-038361720bf3",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates terminal ID is the problem.\"] = body.errors[0][\"location\"] === \"terminal_id\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101421536,
+			"name": "Invalid merchant terminal id.",
+			"description": "Terminal IDs must be positive integers.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": \"-123\"\n  },\n  \"bill\": {},\n  \"customer\": {},\n  \"schedule\": {},\n  \"card_data\": {}\n}"
+		},
+		{
+			"id": "aa40cdc6-bdea-cf28-276f-84b02e79327f",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 400.\"] = responseCode.code === 400;\n  \ttests[\"There should be one error.\"] = body.errors.length === 1\n  \ttests[\"Response body indicates organization ID is the problem.\"] = body.errors[0][\"location\"] === \"organization_id\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101498123,
+			"name": "Organization ID is not authorized by the token used.",
+			"description": "Send an organization id that doesn't match the token used.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": 1000,\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 15\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "aecd556f-3fc9-75df-b15e-0ad1fc9aa925",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101562339,
+			"name": "A successful monthly bill with card, on, ends after a certain of number of bills.",
+			"description": "A successful monthly recurring bill that charges on the 1st Monday of every month and ends after a certain number of bills.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"A\",\n      \"end_after_bill_count\": 12\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"O\",\n      \"monthly_on_the_day_of_week_in_month\": 1,\n      \"monthly_day_of_week\": 2\n    }\n  }\n}"
+		},
+		{
+			"id": "af39e3c7-79b6-4ede-b8e0-c5f26cd80b45",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill-status/{{rb_id_to_be_paused}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"It should return a 204 response code.\"] = responseCode.code === 204;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101961199,
+			"name": "Successfully pause a recurring bill.",
+			"description": "Update the status of a bill to PAUSED.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{ \n\t\"recurring_bill_status\": \"PAUSED\"\n}"
+		},
+		{
+			"id": "b4e173ae-7a87-afd5-ed3b-41b914c20971",
+			"headers": "Authorization: Bearer {{auth_token}}\n",
+			"url": "{{protocol}}{{host}}{{app_root}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \ttests[\"HTTP response code is 200.\"] = responseCode.code === 200;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428100107966,
+			"name": "Get API details.",
+			"description": "Get details of the API.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "b61ff1ea-20a6-ade2-8c17-abb83f9a9f6a",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101803115,
+			"name": "A successful monthly bill with token, each, never ends.",
+			"description": "A successful monthly recurring bill that charges on the 1st of every month and never ends.  Use a token instead of a card.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n\t\"tokenized_card\": \"9999000000001705\",\n\t\"card_expiry_date\": \"202506\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "c15b1668-45e2-d946-934d-94dc470e84f8",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n  \ttests[\"The response should be 400.\"] = responseCode.code === 400;\n  \ttests[\"There should be 1 error.\"] = body.errors.length === 1;\n\ttests[\"The response should indicate that the card_data property is required.\"] = responseBody.has('\"reason\":\"Missing property: card_data\"');\n} \ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101446710,
+			"name": "A card is required.",
+			"description": "Send request without card_data property.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \t\"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 10.00\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "c3147dee-65ef-4957-696d-2f03224b4b29",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101784989,
+			"name": "A successful monthly bill, on, never ends  with card; includes tax amount and invoice.",
+			"description": "A successful monthly recurring bill that charges on the last day of every month and never ends and includes a tax amount and invoice.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    },\n    \"tax_amount\" : {\n      \"amount\" : 1.02,\n      \"currency\" : \"USD\"\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [32]\n    }\n  }\n}"
+		},
+		{
+			"id": "d158458d-aa2e-c6e6-89a5-799e9bc21ad1",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n  \ttests[\"The response should be 400.\"] = responseCode.code === 400;\n  \ttests[\"There should be 1 error.\"] = body.errors.length === 1;\n\ttests[\"The response should indicate that the card_data property is required.\"] = responseBody.has('\"location\":\"card_expiry_date\"');\n} \ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101460117,
+			"name": "A card expiration date is required.",
+			"description": "Send request without card_data.card_expiry_date property.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \t\"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 10.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "d3987e69-4154-2cdf-53cb-8f92b3c95ddd",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill/search/findByCustomerRef?customerId={{existing_test_customer_id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n  \ttests[\"Response code is 200.\"] = responseCode.code === 200;\n  \ttests[\"We get back at least 1 recurring bill.\"] = body._embedded.recurringbills.length > 0;\n\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101883898,
+			"name": "Get all recurring bills for a given customer.",
+			"description": "Get all recurring bills for a given customer (by customer id).",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "d6a83390-c2ee-e473-d10a-cd257d688b20",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n  \t\n\ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be 1 error.\"] = body.errors.length === 1;\n  \ttests[\"The error should indicate that the schedule property is required.\"] = responseBody.has('\"reason\":\"Missing property: schedule\"');\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101488178,
+			"name": "A schedule is required.",
+			"description": "Send request without a schedule.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n  \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 10.00\n      }\n  }\n}"
+		},
+		{
+			"id": "d81dfac0-79f4-63d4-fea5-a45c0d9607ac",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\tvar body = JSON.parse(responseBody);\n\n  \ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates organization ID is the problem.\"] = body.errors[0][\"location\"] === \"organization_id\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428100147294,
+			"name": "Merchant organization ID is required.",
+			"description": "Request missing merchant organizatio id information, which is required.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"bill\": {},\n  \"customer\": {},\n  \"schedule\": {},\n  \"card_data\": {}\n}"
+		},
+		{
+			"id": "db797701-a4cf-8baf-0c89-ff4c7e1a9168",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates error code 4012.\"] = responseBody.has('\"code\":\"4012\"');\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101430671,
+			"name": "Mismatched org id and terminal id should generate an error.",
+			"description": "The org id and terminal id sent should be for the same account.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": 1000\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 19.99\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "debbf40b-1c00-4b24-292c-cd94d8ebaf88",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  \tvar body = JSON.parse(responseBody);\n\n\ttests[\"Response code is 400.\"] = responseCode.code === 400;\n\ttests[\"There should be one error.\"] = body.errors.length === 1\n\ttests[\"Response body indicates terminal ID is the problem.\"] = body.errors[0][\"location\"] === \"terminal_id\";\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101378039,
+			"name": "Merchant terminal ID is required.",
+			"description": "Request missing merchant terminal id information, which is required.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}}\n  },\n  \"bill\": {},\n  \"customer\": {},\n  \"schedule\": {},\n  \"card_data\": {}\n}"
+		},
+		{
+			"id": "e1051a3c-ebb0-6cd7-cf39-be6f66b48dbc",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n\t\n    var locationFullUrl = responseHeaders.Location;\n    \n    var fullUrlArray = locationFullUrl.split(\"/\");\n    \n    postman.setEnvironmentVariable(\"rb_id_to_be_paused\", fullUrlArray[fullUrlArray.length - 1]);\n\t\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101510240,
+			"name": "A successful monthly bill with card, each, never ends. ( Sets ENV VAR: rb_id_to_be_paused )",
+			"description": "A successful monthly recurring bill that charges on the 1st of every month and never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n      \"card_number\": \"4012881888818888\",\n      \"card_expiry_date\": \"202012\",\n      \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n      \"base_amount\": {\n        \"amount\": 19.99\n      }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"M\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2015-06-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"monthly_schedule\": {\n      \"monthly_type\": \"E\",\n      \"monthly_each_days\": [1]\n    }\n  }\n}"
+		},
+		{
+			"id": "e7505228-7cd3-6b44-d18f-42f4b67f36fd",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill/does-not-exist",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 404.\"] = responseCode.code === 404;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false;\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101916940,
+			"name": "Recurring bill does not exist.",
+			"description": "Try to retrieve a recurring bill that does not exist.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "e78a6745-7d59-4ea7-983e-74478a64eef5",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101667190,
+			"name": "A successful daily bill with card; interval > 1;  never ends.",
+			"description": "A successful daily recurring bill with an interval greater than one, and never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"D\",\n    \"bill_generation_interval\": 15,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    }\n  }\n}"
+		},
+		{
+			"id": "e7927d5d-8bab-e7f7-5c8e-d8d582fc6bef",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101657696,
+			"name": "A successful weekly bill with card, on, ends after a certain number of bills.",
+			"description": "A successful weekly recurring bill that charges on the on a certain day every week and ends after a certain number of bills.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"W\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"A\",\n      \"end_after_bill_count\": 8\n    },\n    \"weekly_schedule\": {\n      \"weekly_bill_days\": [\"SUN\",\"WED\"]\n    }\n  }\n}"
+		},
+		{
+			"id": "f3049664-39d3-b40a-2834-afe0dd4fe254",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "mode",
+					"value": "demo",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgid",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "api_username",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "api_password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tid",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "trans_type",
+					"value": "auth",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cc",
+					"value": "4012881888818888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "month",
+					"value": "06",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "year",
+					"value": "2020",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cvv",
+					"value": "999",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "29.95",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "first_name",
+					"value": "Yhujko",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Giamokovic",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "8888888888",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "ebqa1@payhub.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address1",
+					"value": "405 Freeway",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "94011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "note",
+					"value": "This is a test sale transaction by EBQA1.",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "invoice",
+					"value": "Cool 5 logistics 45",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428100091947,
+			"name": "Default Request Template",
+			"description": "Has the URL and headers with valid access token.  No body.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "f46ca83a-682a-6c54-a0c0-b04dfb4fc672",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n\ttests[\"Response code is 201.\"] = responseCode.code === 201;\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428101649855,
+			"name": "A successful weekly bill with card, on, never ends.",
+			"description": "A successful weekly recurring bill that charges on the a single day every week and never ends.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"W\",\n    \"bill_generation_interval\": 1,\n    \"schedule_start_and_end\": {\n      \"start_date\": \"2016-01-01\",\n      \"end_date_type\": \"N\"\n    },\n    \"weekly_schedule\": {\n      \"weekly_bill_days\": [\"MON\"]\n    }\n  }\n}"
+		},
+		{
+			"id": "fa4423d0-883a-6ec6-e28e-4b7ddc0a5d10",
+			"headers": "Authorization: Bearer {{auth_token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"url": "{{protocol}}{{host}}{{app_root}}/recurring-bill",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "try {\n  var body = JSON.parse(responseBody);\n\n  tests[\"Response code is 400.\"] = responseCode.code === 400;\n  tests[\"The cause should be null.\"] = body.cause === null\n  tests[\"The message should contain the invalid field name.\"] = body.message.has(\"cvv_data\");\n}\ncatch(e) {\n  \ttests[\"There was an exception while running the tests! (\" + e.message + \")\"] = false\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428104484618,
+			"name": "A failed recurring bill due to invalid parameter sent. (See HUB-679 and HUB-686)",
+			"description": "Try sending an invalid parameter and the request should fail. Use cvv_data field, as that should not be allowed.  See HUB-679 and HUB-686.",
+			"collectionId": "cdd7714f-8293-6c56-34e0-160e5c902bf1",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"merchant\": {\n    \"organization_id\": {{org_id}},\n    \"terminal_id\": {{terminal_id}}\n  },\n  \"customer\": {\n\t\"first_name\": \"Joe\",\n\t\"last_name\": \"Tester\",\n    \"email_address\": \"lsun@payhub.com\"\n  },\n  \"card_data\": {\n    \"card_number\": \"4012881888818888\",\n    \"card_expiry_date\": \"202012\",\n    \"cvv_data\": 123,\n    \"billing_address_1\": \"2350 Kerner Blvd\",\n    \"billing_address_2\": \"Ste 380\",\n    \"billing_city\": \"San Rafael\",\n    \"billing_state\": \"CA\",\n    \"billing_zip\": \"94901\"\n  },\n  \"bill\": {\n    \"base_amount\": {\n      \"amount\": 20.00\n    },\n    \"tax_amount\" : {\n      \"amount\" : 1.02,\n      \"currency\" : \"USD\"\n    }\n  },\n  \"schedule\": {\n    \"schedule_type\": \"S\",\n    \"specific_dates_schedule\": {\n    \t\"specific_dates\": [\"2015-05-21\",\"2015-06-07\"]\n    }\n  }\n}"
+		}
+	]
+}
