@@ -1,0 +1,79 @@
+{
+	"id": "9179d2d3-70af-7f32-727c-3c4629931fbf",
+	"name": "Staging_Postman1",
+	"values": [
+		{
+			"key": "host",
+			"value": "staging-api.payhub.com",
+			"type": "text",
+			"name": "host",
+			"enabled": true
+		},
+		{
+			"key": "protocol",
+			"value": "https://",
+			"type": "text",
+			"name": "protocol",
+			"enabled": true
+		},
+		{
+			"key": "app_root",
+			"value": "/api/v2",
+			"type": "text",
+			"name": "app_root",
+			"enabled": true
+		},
+		{
+			"key": "auth_token",
+			"value": "107d74ab-4a18-4713-88ff-69bd05710086",
+			"type": "text",
+			"name": "auth_token",
+			"enabled": true
+		},
+		{
+			"key": "org_id",
+			"value": "10127",
+			"type": "text",
+			"name": "org_id",
+			"enabled": true
+		},
+		{
+			"key": "terminal_id",
+			"value": "215",
+			"type": "text",
+			"name": "terminal_id",
+			"enabled": true
+		},
+		{
+			"key": "rb_id_to_be_paused",
+			"value": "1078",
+			"type": "text",
+			"name": "rb_id_to_be_paused",
+			"enabled": true
+		},
+		{
+			"key": "rb_id_to_be_cancelled",
+			"value": "1079",
+			"type": "text",
+			"name": "rb_id_to_be_cancelled",
+			"enabled": true
+		},
+		{
+			"key": "rb_id_for_active_to_query",
+			"value": "1080",
+			"type": "text",
+			"name": "rb_id_for_active_to_query",
+			"enabled": true
+		},
+		{
+			"key": "existing_test_customer_id",
+			"value": "2964",
+			"type": "text",
+			"name": "existing_test_customer_id",
+			"enabled": true
+		}
+	],
+	"timestamp": 1428337089546,
+	"synced": false,
+	"syncedFilename": ""
+}

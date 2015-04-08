@@ -1,0 +1,93 @@
+{
+	"id": "3930ff6b-847c-de33-7b43-87578b5583f1",
+	"name": "Demo_Prototype",
+	"values": [
+		{
+			"key": "protocol",
+			"value": "https://",
+			"type": "text",
+			"name": "protocol",
+			"enabled": true
+		},
+		{
+			"key": "host",
+			"value": "checkout.payhub.com",
+			"type": "text",
+			"name": "host",
+			"enabled": true
+		},
+		{
+			"key": "application_root",
+			"value": "/transaction",
+			"type": "text",
+			"name": "application_root",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Sale_For_Void",
+			"value": "10232",
+			"type": "text",
+			"name": "Previous_Successful_Sale_For_Void",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Auth-Only_For_Void",
+			"value": "10213",
+			"type": "text",
+			"name": "Previous_Successful_Auth-Only_For_Void",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Auth-Only_For_Capture",
+			"value": "10214",
+			"type": "text",
+			"name": "Previous_Successful_Auth-Only_For_Capture",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Auth-Only_For_Capture_then_Void",
+			"value": "10215",
+			"type": "text",
+			"name": "Previous_Successful_Auth-Only_For_Capture_then_Void",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Capture_from_Auth-Only_For_Void",
+			"value": "undefined",
+			"type": "text",
+			"name": "Previous_Successful_Capture_from_Auth-Only_For_Void",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Sale_For_Refund",
+			"value": "10217",
+			"type": "text",
+			"name": "Previous_Successful_Sale_For_Refund",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Sale_For_Refund_to_void",
+			"value": "10218",
+			"type": "text",
+			"name": "Previous_Successful_Sale_For_Refund_to_void",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Auth-Only_For_Offline",
+			"value": "10219",
+			"type": "text",
+			"name": "Previous_Successful_Auth-Only_For_Offline",
+			"enabled": true
+		},
+		{
+			"key": "Previous_Successful_Auth-Only_For_Offline_to_Void",
+			"value": "10220",
+			"type": "text",
+			"name": "Previous_Successful_Auth-Only_For_Offline_to_Void",
+			"enabled": true
+		}
+	],
+	"timestamp": 1427501762355,
+	"synced": false,
+	"syncedFilename": ""
+}
